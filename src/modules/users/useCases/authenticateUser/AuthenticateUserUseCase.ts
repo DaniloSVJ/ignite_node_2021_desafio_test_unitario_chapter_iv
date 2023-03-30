@@ -37,7 +37,7 @@ export class AuthenticateUserUseCase {
 
     const token = sign({ user }, secret, {
       subject: user.id,
-      expiresIn,
+      expiresIn:expiresIn,
     });
 
     return {
