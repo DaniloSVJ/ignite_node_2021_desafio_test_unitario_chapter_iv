@@ -40,8 +40,8 @@ describe("User balance accont",()=>{
   it("should be able to see all deposit and withdrawal operations and user account balance",async ()=>{
 
     const user = {
-      name: "User Test",
-      email: "userteste@test.com",
+      name: "User Test4444",
+      email: "userteste4@test.com",
       password: "123"
     }
 
@@ -71,7 +71,9 @@ describe("User balance accont",()=>{
     const user_balance = await getBalanceUseCase.execute(
       {user_id}
     )
-
+    console.log("==============================")
+    console.log(user_balance)
+    console.log("==============================")
 
     expect(user_balance).toHaveProperty("statement")
     expect(user_balance).toHaveProperty("balance")

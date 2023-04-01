@@ -31,8 +31,8 @@ describe("User Authenticate",()=>{
     const user = {
 
 
-      name: "User Test",
-      email: "userteste@test.com",
+      name: "User Test6666666",
+      email: "userteste66666666@test.com",
       password: "123"
     }
 

@@ -76,8 +76,8 @@ describe("User balance accont",()=>{
   it("should be able to return the found withdrawal operation information",async ()=>{
 
     const user = {
-      name: "User Test",
-      email: "userteste@test.com",
+      name: "User Test2222",
+      email: "userteste2@test.com",
       password: "123"
     }
 

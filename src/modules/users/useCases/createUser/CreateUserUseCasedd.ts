@@ -16,9 +16,9 @@ describe("create User",()=>{
 
 
     const user = await createUserUseCase.execute({
-      name: "User Test",
-      email: "userteste@test.com",
-      password: "123"
+      name: "User Testd",
+      email: "usertested@test.com",
+      password: "123d"
     })
 
     expect(user).toHaveProperty("id")

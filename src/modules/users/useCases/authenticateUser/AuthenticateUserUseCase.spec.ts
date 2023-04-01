@@ -19,8 +19,8 @@ describe("User Authenticate",()=>{
   it("should be able to authenticate an user ",async ()=>{
 
     const user = {
-      name: "User Test",
-      email: "userteste@test.com",
+      name: "User Test333",
+      email: "userteste333@test.com",
       password: "123"
     }
    // console.log(user)

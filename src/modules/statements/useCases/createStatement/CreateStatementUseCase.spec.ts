@@ -3,7 +3,7 @@ import { InMemoryUsersRepository } from "../../../users/repositories/in-memory/I
 import { AuthenticateUserUseCase } from "../../../users/useCases/authenticateUser/AuthenticateUserUseCase";
 import { CreateUserUseCase } from "../../../users/useCases/createUser/CreateUserUseCase";
 import { InMemoryStatementsRepository } from "../../repositories/in-memory/InMemoryStatementsRepository";
-import { CreateStatementUseCase } from "../createStatement/CreateStatementUseCase";
+import { CreateStatementUseCase } from "./CreateStatementUseCase";
 import { GetBalanceUseCase } from "../getBalance/GetBalanceUseCase";
 
 interface IUser{
@@ -43,8 +43,8 @@ describe("User balance accont",()=>{
   it("should be able to log the deposit operation of the amount and return the deposit information",async ()=>{
 
     const user = {
-      name: "User Test",
-      email: "userteste@test.com",
+      name: "User Test5555",
+      email: "userteste5@testee.com",
       password: "123"
     }
 
