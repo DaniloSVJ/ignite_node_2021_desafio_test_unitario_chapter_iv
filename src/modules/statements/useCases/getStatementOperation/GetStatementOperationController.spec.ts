@@ -50,10 +50,15 @@ describe("Create User Controller", ()=>{
           })
 
          const {statement} =  operations.body
-         const id =  statement[0].id
+         console.log(statement)
+
+         const id = statement[0].id
          const response =  await request(app)
           .get(`/api/v1/statements/${id}`)
-
+          .set({
+            Authorization: `Bearer ${token}`
+          })
+          console.log(response.body)
           expect(response.body).toHaveProperty("id")
         // expect(response.body).toHaveProperty("statement")
         // expect(response.body).toHaveProperty("balance")

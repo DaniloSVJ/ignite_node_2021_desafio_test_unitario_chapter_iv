@@ -54,19 +54,38 @@ describe("Create User Controller", ()=>{
 
     })
     it("should be able to create withdraw statement ",async()=>{
+      await request(app).post("/api/v1/users/").send({
+        name: "Test",
+        email: "usertest@fin_api.com",
+        password: "123"
+    })
+
+
+
 
 
       const responseToken = await request(app).post("/api/v1/sessions").send({
 
-        email: "admin@finapi.com.br",
-        password: "admin"
+        email:'usertest@fin_api.com',
+        password: "123"
         })
-      const {token} = responseToken.body
 
+
+      const {token} = responseToken.body
+      console.log('Token: =>>'+token)
+      await request(app)
+      .post("/api/v1/statements/deposit")
+      .send({
+        amount:50,
+        description: "deposito"
+      })
+      .set({
+        Authorization: `Bearer ${token}`
+      })
       const response = await request(app)
         .post("/api/v1/statements/withdraw")
         .send({
-          amount:50,
+          amount:45,
           description: "deposito"
         })
         .set({
@@ -76,7 +95,7 @@ describe("Create User Controller", ()=>{
       console.log(response.body)
       expect(response.status).toBe(201)
       expect(response.body).toHaveProperty("id");
-      expect(response.body.amount).toBe(50);
+      expect(response.body.amount).toBe(45);
       // expect(response.body).toHaveProperty("balance")
       // expect(response.body).toHaveProperty("email")
 
@@ -86,7 +105,7 @@ describe("Create User Controller", ()=>{
 
     const responseToken = await request(app).post("/api/v1/sessions").send({
 
-      email: "admin@finapi.com.br",
+      email: "admin1@finapi.com.br",
       password: "admin"
       })
     const {token} = responseToken.body
@@ -102,7 +121,7 @@ describe("Create User Controller", ()=>{
       })
 
     console.log(response.body)
-    expect(response.status).toBe(401)
+    expect(response.status).toBe(400)
 
     // expect(response.body).toHaveProperty("balance")
     // expect(response.body).toHaveProperty("email")
